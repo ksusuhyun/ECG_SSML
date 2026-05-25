@@ -18,3 +18,12 @@ Pre-trained weights is organized as follows:
 - **unimodal_init**: Weights for initializing each encoder before multimodal pre-training
 - **contrastive_encoder**: Best image encoder and signal encoder from the contrastive-based method
 - **generative_ckpt**: Best pre-trained model from the generative-based method
+
+## Fine-tuning
+To run fine-tuning:
+```bash
+PYTHONPATH=. torchrun "./finetune/main.py" \
+                      --config_path "./config/finetune_con.yaml"
+```
+To reproduce the **Uni-Modal Concat** baseline in the paper,\
+set `signal_pretrain_weight_path` and `image_pretrain_weight_path` in `finetune_con.yaml` to the **unimodal_init** weights.
