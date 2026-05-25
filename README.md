@@ -13,11 +13,13 @@ To run pre-training:
 PYTHONPATH=. torchrun "./pretrain/main.py" \
                       --config_path "./config/pretrain.yaml"
 ```
-Pre-trained models can be found [here](https://drive.google.com/drive/folders/1AC1QJL96RWL3VEunZYNWMBXLL17RrCN3).\
-Pre-trained weights is organized as follows:
-- **unimodal_init**: Weights for initializing each encoder before multimodal pre-training
-- **contrastive_encoder**: Best image encoder and signal encoder from the contrastive-based method
-- **generative_ckpt**: Best pre-trained model from the generative-based method
+Pre-trained weights are available [here](https://drive.google.com/drive/folders/1AC1QJL96RWL3VEunZYNWMBXLL17RrCN3), organized as follows:
+
+| Folder | Description |
+|--------|-------------|
+| `unimodal_init` | Weights for initializing each encoder before multimodal pre-training |
+| `contrastive_encoder` | Best encoders from the contrastive-based method |
+| `generative_ckpt` | Best model from the generative-based method |
 
 ## Fine-tuning
 To run fine-tuning:
@@ -25,5 +27,4 @@ To run fine-tuning:
 PYTHONPATH=. torchrun "./finetune/main.py" \
                       --config_path "./config/finetune_con.yaml"
 ```
-To reproduce the **Uni-Modal Concat** baseline in the paper,\
-set `signal_pretrain_weight_path` and `image_pretrain_weight_path` in `finetune_con.yaml` to the **unimodal_init** weights.
+To reproduce the **Uni-Modal Concat** baseline in the paper, set `signal_pretrain_weight_path` and `image_pretrain_weight_path` in `finetune_con.yaml` to the **unimodal_init** weights.
