@@ -66,6 +66,26 @@ def get_1d_sincos_pos_embed_from_grid(embed_dim, pos):
     emb = np.concatenate([emb_sin, emb_cos], axis=1)  # (M, D)
     return emb
 
+def get_1d_sincos_pos_embed(embed_dim: int,
+                            grid_size: int,
+                            temperature: float = 10000,
+                            sep_embed: bool = False):
+    """Positional embedding for 1D patches.
+    """
+    assert (embed_dim % 2) == 0, \
+        'feature dimension must be multiple of 2 for sincos emb.'
+    grid = torch.arange(grid_size, dtype=torch.float32)
+
+    omega = torch.arange(embed_dim // 2, dtype=torch.float32)
+    omega /= (embed_dim / 2.)
+    omega = 1. / (temperature ** omega)
+
+    grid = grid.flatten()[:, None] * omega[None, :]
+    pos_embed = torch.cat((grid.sin(), grid.cos()), dim=1)
+    if sep_embed:
+        pos_embed = torch.cat([torch.zeros(1, embed_dim), pos_embed, torch.zeros(1, embed_dim)],
+                              dim=0)
+    return pos_embed
 
 # --------------------------------------------------------
 # Interpolate position embeddings for high-resolution

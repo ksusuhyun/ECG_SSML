@@ -229,7 +229,6 @@ class SignalEncoder(nn.Module):
                                   mlp_dim=mlp_ratio * embed_dim,
                                   heads=num_heads,
                                   qkv_bias=qkv_bias)
-        self.to_patch_embedding = self.encoder.to_patch_embedding
         
         self.initialize_weights()
         
@@ -286,7 +285,7 @@ class SignalEncoder(nn.Module):
             
     def forward(self, x, mask_ratio=0.5):
         
-        x = self.to_patch_embedding(x)
+        x = self.encoder.to_patch_embedding(x)
         b, _, n, _ = x.shape
         
         x = x + self.encoder.pos_embedding[:, 1:n + 1, :].unsqueeze(1)
