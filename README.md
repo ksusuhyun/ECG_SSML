@@ -3,4 +3,4 @@ Self-Supervised Multimodal Learning Method Comparison with ECG Signals and Image
 
 ### Pre-training
 
-Pre-trained models can be found [here](https://drive.google.com/drive/folders/1AC1QJL96RWL3VEunZYNWMBXLL17RrCN3).\
+Pre-trained models can be found [here](https://drive.google.com/drive/folders/1AC1QJL96RWL3VEunZYNWMBXLL17RrCN3).
