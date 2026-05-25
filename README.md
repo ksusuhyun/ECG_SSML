@@ -14,12 +14,9 @@ PYTHONPATH=. torchrun "./pretrain/main.py" \
                       --config_path "./config/pretrain.yaml"
 ```
 Pre-trained weights are available [here](https://drive.google.com/drive/folders/1AC1QJL96RWL3VEunZYNWMBXLL17RrCN3), organized as follows:
-
-| Folder | Description |
-|--------|-------------|
-| `unimodal_init` | Weights for initializing each encoder before multimodal pre-training |
-| `contrastive_encoder` | Best encoders from the contrastive-based method |
-| `generative_ckpt` | Best model from the generative-based method |
+- **unimodal_init**: Weights for initializing each encoder before multimodal pre-training
+- **contrastive_encoder**: Best image encoder and signal encoder from the contrastive-based method
+- **generative_ckpt**: Best pre-trained model from the generative-based method 
 
 ## Fine-tuning
 To run fine-tuning:
