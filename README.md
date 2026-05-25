@@ -2,11 +2,14 @@
 Self-Supervised Multimodal Learning Method Comparison with ECG Signals and Images
 
 ### Dataset downloading
-Datasets we used are as follows:
-- **MIMIC-IV-ECG**: We downloaded the [MIMIC-IV-ECG](https://physionet.org/content/mimic-iv-ecg/1.0/) dataset as the ECG signals.
-Due to limited training time, we used only 200,000 samples from the MIMIC-IV-ECG dataset. The CSV file containing the list of used data is provided [here](https://drive.google.com/drive/folders/14XD8k3BXa7nYv1U3jqDiGRcY72J-N4Wl).
+---
+Datasets we used are as follows. The CSV files used for training are available [here](https://drive.google.com/drive/folders/14XD8k3BXa7nYv1U3jqDiGRcY72J-N4Wl).
+
+- **MIMIC-IV-ECG** (for pre-training): We downloaded the [MIMIC-IV-ECG](https://physionet.org/content/mimic-iv-ecg/1.0/) dataset as the ECG signals. We used 200,000 samples from the full dataset.
+- **PTB-XL** (for fine-tuning): We downloaded the [PTB-XL](https://physionet.org/content/ptb-xl/1.0.3/) dataset, which consists of four subsets: Superclass, Subclass, Form, and Rhythm.
 
 ### Pre-training
+---
 To run pre-training:
 ```bash
 PYTHONPATH=. torchrun "./pretrain/main.py" \
