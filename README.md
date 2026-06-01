@@ -1,7 +1,7 @@
 # ECG_SSML
 Self-Supervised Multimodal Learning Method Comparison with ECG Signals and Images
 
-![framework](docs/framework.png)
+![framework](framework.png)
 
 ## Dataset
 The CSV files used for training are available [here](https://drive.google.com/drive/folders/14XD8k3BXa7nYv1U3jqDiGRcY72J-N4Wl).
